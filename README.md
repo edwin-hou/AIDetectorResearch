@@ -1,0 +1,1 @@
+This repository contains all of the code and resources refered to by the "Can We Trust ZeroGPT? A Comprehensive Statistical and Performance Analysis of an AI-Generated Text Detection Tool" paper by Edwin Hou.
