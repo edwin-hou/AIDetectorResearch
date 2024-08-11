@@ -21,7 +21,8 @@ for x in range(3):
             if float(row.iloc[0].replace('%', 'e-2')) >= threshold:
                 gpt_array.append(1.0)
             else:
-                gpt_array.append(float(row.iloc[0].replace('%', 'e-2')))
+                # gpt_array.append(float(row.iloc[0].replace('%', 'e-2')))
+                gpt_array.append(0)
         for _, row in ground_truth.iterrows():
             truth_array.append(row.iloc[0])
 
@@ -43,7 +44,7 @@ for x in range(3):
                   end="")
             print(str((i / 10 * truePositive) / ((i / 10 * truePositive) + (10 - i) / 10 * falsePositive) * 100) + "%")
         print('========================')
-        matrix = [[truePositive, falseNegative], [falsePositive, trueNegative]]
+        matrix = [[truePositive/ 48900 , falseNegative/48900], [falsePositive/48900, trueNegative/48900]]
         df_cm = pd.DataFrame(matrix, ["GPT generated", "Human Written"], ["GPT generated", "Human Written"])
         # plt.figure(figsize=(10,7))
         sn.set(font_scale=1.4)  # for label size
